@@ -1,4 +1,4 @@
-import {MapContainer, TileLayer, Marker} from 'react-leaflet';
+import {MapContainer, TileLayer} from 'react-leaflet';
 import './styles/App.scss';
 
 function App() {

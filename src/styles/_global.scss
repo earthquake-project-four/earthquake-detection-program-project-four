@@ -1,2 +1,7 @@
 @use "./variables" as *;
 @use "./mixins" as *;
+
+body {
+    @include font();
+    font-family: $font-stack;
+}

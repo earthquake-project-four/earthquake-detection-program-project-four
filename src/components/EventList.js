@@ -1,5 +1,8 @@
 const EventList = () => {
-    return ()
-}
+    return (
+        <>
+        </>
+    )
+};
 
 export default EventList;

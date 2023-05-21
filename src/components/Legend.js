@@ -1,5 +1,8 @@
 const Legend = () => {
-    return ()
-}
+    return (
+        <>
+        </>
+    )
+};
 
 export default Legend;

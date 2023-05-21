@@ -1,5 +1,8 @@
 const Magnitude = () => {
-    return ()
-}
+    return (
+        <>
+        </>
+    )
+};
 
 export default Magnitude;

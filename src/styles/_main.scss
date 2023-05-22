@@ -2,5 +2,6 @@
 @use "./mixins" as *;
 
 main {
-    height: 85vh;
+    @include flex(row, space-between, stretch);
+    height: calc(100vh - 125px);
 }

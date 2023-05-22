@@ -1,8 +1,6 @@
+import Event from "./Event";
 const EventList = () => {
-    return (
-        <>
-        </>
-    )
+    return <Event />;
 };
 
 export default EventList;

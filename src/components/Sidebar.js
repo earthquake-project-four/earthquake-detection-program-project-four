@@ -1,8 +1,5 @@
 const Sidebar = () => {
-    return (
-        <>
-        </>
-    )
+  return <section className="sidebar"></section>;
 };
 
 export default Sidebar;

@@ -1,7 +1,6 @@
 @use "./variables" as *;
 @use "./mixins" as *;
 
-
 html {
     font-size: 20px;
     height: 100%;
@@ -13,6 +12,7 @@ body {
 }
 
 .app {
+    @include flex(column, space-between, stretch);
     max-width: 2400px;
     width: 100%;
 }

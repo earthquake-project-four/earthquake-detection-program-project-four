@@ -1,7 +1,36 @@
-@use "./variables" as *;
-@use "./mixins" as *;
+@use './variables' as *;
+@use './mixins' as *;
 
 main {
-    @include flex(row, space-between, stretch);
-    height: calc(100vh - 125px);
+	@include flex(row, space-between, stretch);
+	height: calc(100vh - 125px);
+}
+
+.sidebar {
+	width: 20%;
+	background-color: $sidebar-background;
+	padding: 10px;
+}
+
+.map-container {
+	width: 80%;
+	@include flex(column, space-between, stretch);
+}
+
+.map {
+	height: calc(100vh - 275px);
+}
+
+.legend {
+	background-color: $legend-background;
+	height: 150px;
+
+	ul {
+		@include flex(row, space-evenly, center);
+		height: 100%;
+
+		li {
+			width: 150px;
+		}
+	}
 }

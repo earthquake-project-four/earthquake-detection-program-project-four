@@ -1,8 +1,0 @@
-@use "./variables" as *;
-@use "./mixins" as *;
-
-.sidebar {
-    width: 20%;
-    background-color: $sidebar-background;
-    padding: 10px;
-}

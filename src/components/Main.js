@@ -3,10 +3,13 @@ import Map from "./Map";
 import Legend from "./Legend";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import app from "../firebase/firebase";
+import { onValue, getDatabase, ref } from 'firebase/database';
 
 const Main = () => {
     const [earthquakeData, setEarthquakeData] = useState([]);
     const [error, setError] = useState(false);
+    const [firebaseData, setFirebaseData] = useState({});
 
     useEffect(() => {
         const currentDate = new Date();
@@ -60,6 +63,23 @@ const Main = () => {
             .catch(() => {
                 setError(true);
             });
+    }, []);
+
+    useEffect( () => {
+        const database = getDatabase(app);
+        const dbRef = ref(database);
+
+        onValue(dbRef, (dbResponse) => {
+            if (dbResponse.exists()){
+                setFirebaseData(dbResponse.val());
+            }
+            else {
+                setFirebaseData({});
+
+            }
+                console.log(firebaseData);
+        })
+
     }, []);
 
     return (

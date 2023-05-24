@@ -24,18 +24,18 @@ const Main = () => {
             .then((res) => {
                 const results = res.data.features;
                 const arrayOfEarthquakes = results.map((earthquake) => {
-                    let color, intensity;
+                    let colour, intensity;
                     if (earthquake.properties.mag < 3.5) {
-                        color = "#fddd59";
+                        colour = "#fddd59";
                         intensity = "low";
                     } else if (earthquake.properties.mag < 6) {
-                        color = "#ff914d";
+                        colour = "#ff914d";
                         intensity = "medium";
                     } else if (earthquake.properties.mag < 7) {
-                        color = "#ff3131";
+                        colour = "#ff3131";
                         intensity = "high";
                     } else {
-                        color = "#a51b1b";
+                        colour = "#a51b1b";
                         intensity = "severe";
                     }
 
@@ -45,10 +45,13 @@ const Main = () => {
                         lng: earthquake.geometry.coordinates[0],
                         mag: earthquake.properties.mag,
                         title: earthquake.properties.title,
-                        time: new Date(
+                        time: `${new Date(
                             earthquake.properties.time
-                        ).toLocaleTimeString(),
-                        color: color,
+                        ).toLocaleDateString()}
+                        ${new Date(
+                            earthquake.properties.time
+                        ).toLocaleTimeString()}`,
+                        colour: colour,
                         intensity: intensity,
                     };
                 });
@@ -67,7 +70,7 @@ const Main = () => {
                 <>
                     <Sidebar />
                     <div className="map-container">
-                        <Map />
+                        <Map earthquakeData={earthquakeData} />
                         <Legend />
                     </div>
                 </>

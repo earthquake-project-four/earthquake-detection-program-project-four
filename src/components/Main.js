@@ -4,12 +4,17 @@ import Legend from "./Legend";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import app from "../firebase/firebase";
-import { onValue, getDatabase, ref } from 'firebase/database';
+import { onValue, getDatabase, ref, set } from "firebase/database";
 
 const Main = () => {
     const [earthquakeData, setEarthquakeData] = useState([]);
     const [error, setError] = useState(false);
-    const [firebaseData, setFirebaseData] = useState({});
+    const [newEvents, setNewEvents] = useState({
+        generalGeologyTeachers: [],
+        richMortal: [],
+        strongGood: [],
+        all: [],
+    });
 
     useEffect(() => {
         const currentDate = new Date();
@@ -26,38 +31,47 @@ const Main = () => {
         })
             .then((res) => {
                 const results = res.data.features;
+                const eventsLog = {
+                    generalGeologyTeachers: [],
+                    richMortal: [],
+                    strongGood: [],
+                    all: [],
+                };
                 const arrayOfEarthquakes = results.map((earthquake) => {
                     let colour, intensity;
-                    if (earthquake.properties.mag < 3.5) {
+                    const mag = earthquake.properties.mag;
+                    if (mag < 3.5) {
                         colour = "#fddd59";
                         intensity = "low";
-                    } else if (earthquake.properties.mag < 6) {
+                        eventsLog.generalGeologyTeachers.push(earthquake.id);
+                    } else if (mag < 6) {
                         colour = "#ff914d";
                         intensity = "medium";
-                    } else if (earthquake.properties.mag < 7) {
+                        eventsLog.richMortal.push(earthquake.id);
+                    } else if (mag < 7) {
                         colour = "#ff3131";
                         intensity = "high";
+                        eventsLog.strongGood.push(earthquake.id);
                     } else {
                         colour = "#a51b1b";
                         intensity = "severe";
+                        eventsLog.all.push(earthquake.id);
                     }
 
                     return {
                         id: earthquake.id,
                         lat: earthquake.geometry.coordinates[1],
                         lng: earthquake.geometry.coordinates[0],
-                        mag: earthquake.properties.mag,
+                        mag: mag,
                         title: earthquake.properties.title,
-                        time: `${new Date(
+                        time: new Date(
                             earthquake.properties.time
-                        ).toLocaleDateString()}
-                        ${new Date(
-                            earthquake.properties.time
-                        ).toLocaleTimeString()}`,
+                        ).toLocaleString(),
                         colour: colour,
                         intensity: intensity,
                     };
                 });
+                setNewEvents(eventsLog);
                 setEarthquakeData(arrayOfEarthquakes);
             })
             .catch(() => {
@@ -65,23 +79,28 @@ const Main = () => {
             });
     }, []);
 
-    useEffect( () => {
+    useEffect(() => {
         const database = getDatabase(app);
-        const dbRef = ref(database);
+        const dbRef = ref(database, "/testing2");
 
         onValue(dbRef, (dbResponse) => {
-            if (dbResponse.exists()){
-                setFirebaseData(dbResponse.val());
+            if (dbResponse.exists()) {
+                const dataFromFirebase = dbResponse.val();
+                const totalEvents = {};
+                for (let key in dataFromFirebase) {
+                    totalEvents[key] = [
+                        ...new Set([
+                            ...dataFromFirebase[key],
+                            ...newEvents[key],
+                        ]),
+                    ];
+                }
+                set(dbRef, totalEvents);
+            } else {
+                set(dbRef, newEvents);
             }
-            else {
-                setFirebaseData({});
-
-            }
-                console.log(firebaseData);
-        })
-
-    }, []);
-
+        });
+    }, [newEvents]);
     return (
         <main>
             {error ? (

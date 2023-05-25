@@ -10,6 +10,8 @@ main {
 	width: 20%;
 	background-color: $sidebar-background;
 	padding: 10px;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 .map-container {

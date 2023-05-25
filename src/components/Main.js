@@ -110,7 +110,7 @@ const Main = () => {
                     <Sidebar />
                     <div className="map-container">
                         <Map earthquakeData={earthquakeData} />
-                        <Legend />
+                        <Legend earthquakeData={earthquakeData} />
                     </div>
                 </>
             )}

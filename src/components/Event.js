@@ -4,7 +4,7 @@ const Event = ({place, mag, time}) => {
             <p className="magnitude">{mag.toFixed(2)}</p>
             <div className="event-details">
                 <p>{place}</p>
-                <p>{time}</p>
+                <p className="time">{time}</p>
             </div>
 		</li>
 	);

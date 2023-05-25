@@ -12,7 +12,7 @@ main {
 
 
 .sidebar {
-    width: 20%;
+    width: 320px;
     background-color: $sidebar-background;
     padding: 20px;
     overflow: hidden auto;
@@ -20,9 +20,13 @@ main {
 
     h2 {
         @include font(1.5rem, 1.5rem, $primary-font-colour, none, 800);
+        margin-bottom: 10px;
     }
 }
 
+.event-list {
+    padding: 10px 0;
+}
 
 .event {
     @include flex();
@@ -32,9 +36,9 @@ main {
 
 
 .magnitude {
-    font-weight: 800;
+    @include font(0.9rem, 0.9rem, $primary-font-colour, none, 800);
     width: 15%;
-    margin-right: 10px;
+    margin-right: 6px;
 }
 
 
@@ -43,9 +47,15 @@ main {
     width: 85%;
 }
 
+p.time {
+    @include font(0.8rem, 1rem, $primary-font-colour, none, 400);
+    margin-top: 5px;
+
+}
+
 
 .map-container {
-    width: 80%;
+    width: calc(100% - 320px);
     @include flex(column, space-between, stretch);
 }
 

@@ -1,9 +1,13 @@
 const Magnitude = ({ numOfEvents, range, hero, intensity }) => {
     return (
-        <li className={intensity}>
-            <p>{numOfEvents}</p>
-            <p>{range}</p>
-            <p>{hero}</p>
+        <li>
+            <div className={`legend-dot ${intensity}`}>
+                <p>{numOfEvents}</p>
+            </div>
+            <div className="legend-text">
+                <p>{hero}</p>
+                <p>{range}</p>
+            </div>
         </li>
     );
 };

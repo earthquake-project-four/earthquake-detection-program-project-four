@@ -37,21 +37,19 @@ const Legend = ({ earthquakeData }) => {
     ];
 
     return (
-        <section className="legend">
-            <ul>
-                {legendItems.map((legendItem) => {
-                    return (
-                        <Magnitude
-                            key={legendItem.hero}
-                            intensity={legendItem.intensity}
-                            numOfEvents={legendItem.numOfEvents}
-                            range={legendItem.range}
-                            hero={legendItem.hero}
-                        />
-                    );
-                })}
-            </ul>
-        </section>
+        <ul className="legend">
+            {legendItems.map((legendItem) => {
+                return (
+                    <Magnitude
+                        key={legendItem.hero}
+                        intensity={legendItem.intensity}
+                        numOfEvents={legendItem.numOfEvents}
+                        range={legendItem.range}
+                        hero={legendItem.hero}
+                    />
+                );
+            })}
+        </ul>
     );
 };
 

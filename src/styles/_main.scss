@@ -1,38 +1,109 @@
+
+
 @use './variables' as *;
 @use './mixins' as *;
 
+
 main {
-	@include flex(row, space-between, stretch);
-	height: calc(100vh - 125px);
+    @include flex(row, space-between, stretch);
+    position: relative;
+    height: calc(100vh - 125px);
 }
+
 
 .sidebar {
-	width: 20%;
-	background-color: $sidebar-background;
-	padding: 10px;
-	overflow-x: hidden;
-	overflow-y: auto;
+    width: 20%;
+    background-color: $sidebar-background;
+    padding: 20px;
+    overflow: hidden auto;
+
+
+    h2 {
+        @include font(1.5rem, 1.5rem, $primary-font-colour, none, 800);
+    }
 }
+
+
+.event {
+    @include flex();
+    padding: 10px 0;
+    border-top: 1px solid;
+}
+
+
+.magnitude {
+    font-weight: 800;
+    width: 15%;
+    margin-right: 10px;
+}
+
+
+.event-details {
+    @include font(0.8rem, 1rem, $primary-font-colour, none, 600);
+    width: 85%;
+}
+
 
 .map-container {
-	width: 80%;
-	@include flex(column, space-between, stretch);
+    width: 80%;
+    @include flex(column, space-between, stretch);
 }
+
 
 .map {
-	height: calc(100vh - 275px);
+    height: calc(100vh - 125px);
 }
+
 
 .legend {
-	background-color: $legend-background;
-	height: 150px;
+    @include flex(column, space-between, flex-start);
+    position: absolute;
+    right: 0;
+    bottom: 21px;
+    z-index: 400;
+    width: 281px;
+    padding: 20px 10px;
+    background: $legend-background;
 
-	ul {
-		@include flex(row, space-evenly, center);
-		height: 100%;
-
-		li {
-			width: 150px;
-		}
-	}
+    li {
+        @include flex(row, flex-start);
+        margin: 5px 0;
+    }
 }
+
+
+.legend-dot {
+    @include flex(row, center, center);
+    font-weight: 800;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+
+.low {
+    background: $low-intensity;
+}
+
+
+.medium {
+    background: $medium-intensity;
+}
+
+
+.high {
+    background: $high-intensity;
+}
+
+
+.severe {
+    background: $severe-intensity;
+}
+
+
+.legend-text {
+    @include font(0.8rem, 1rem, $primary-font-colour, none, 600);
+}
+

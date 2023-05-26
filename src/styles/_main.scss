@@ -13,7 +13,7 @@ main {
     height: calc(100vh - 125px);
     background-color: $sidebar-background;
     padding: 20px;
-    z-index: 500;
+    z-index: 1500;
     overflow: hidden auto;
 
     h1 {
@@ -30,8 +30,7 @@ main {
     @include font(0.8rem, 1rem, $primary-font-colour, none, 400);
     @include flex();
     padding: 10px 0;
-    border-top: 1px solid;
-    border-top: 2px solid rgba(128, 128, 128, 0.241);
+    border-top: 2px solid $event-border;
 }
 
 .magnitude {
@@ -99,18 +98,18 @@ p.time {
 .high {
     background: $high-intensity;
 }
+
 .severe {
     background: $severe-intensity;
 }
+
 .legend-text {
     @include font(0.8rem, 1rem, $primary-font-colour, none, 600);
 }
 
-@media (max-width: 550px) {
+@media (max-width: 720px) {
+
     .sidebar {
         width: 100%;
-    }
-    .legend {
-        z-index: 9999999;
     }
 }

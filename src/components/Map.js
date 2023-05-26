@@ -1,5 +1,6 @@
 import MapMarker from "./MapMarker";
 import { MapContainer, TileLayer } from "react-leaflet";
+import L from "leaflet";
 
 const Map = ({ earthquakeData }) => {
     return (

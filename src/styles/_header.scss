@@ -13,6 +13,7 @@ header {
 
     img {
         width: 200px;
+        min-width: 120px;
         padding: 20px;
     }
 }
@@ -20,4 +21,52 @@ header {
 h1 {
     width: 80%;
     color: $secondary-font-colour;
+}
+.toggle-btn {
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 10px;
+    padding: 3px;
+}
+@media (max-width: 992px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1rem;
+    }
+}
+@media (max-width: 480px) {
+    header {
+        @include flex(column, stretch, flex-end);
+        height: auto;
+        padding: 10px 0;
+        position: relative;
+    }
+    .logo {
+        @include flex(row, stretch, center);
+        width: 100%;
+
+        img {
+            width: 90px;
+            padding: 10px;
+        }
+    }
+
+    h1 {
+        width: 100%;
+        border-top: 1px solid $secondary-font-colour;
+        font-size: 0.9rem;
+        margin-top: 10px;
+        padding-top: 10px;
+        color: $secondary-font-colour;
+    }
+    .toggle-btn {
+        position: absolute;
+        top: 20px;
+        right: 10px;
+    }
 }

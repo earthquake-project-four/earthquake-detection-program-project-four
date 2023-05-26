@@ -1,8 +1,5 @@
-
-
-@use './variables' as *;
-@use './mixins' as *;
-
+@use "./variables" as *;
+@use "./mixins" as *;
 
 main {
     @include flex(row, space-between, stretch);
@@ -10,13 +7,11 @@ main {
     height: calc(100vh - 125px);
 }
 
-
 .sidebar {
     width: 320px;
     background-color: $sidebar-background;
     padding: 20px;
     overflow: hidden auto;
-
 
     h2 {
         @include font(1.5rem, 1.5rem, $primary-font-colour, none, 800);
@@ -34,13 +29,11 @@ main {
     border-top: 1px solid;
 }
 
-
 .magnitude {
     @include font(0.9rem, 0.9rem, $primary-font-colour, none, 800);
     width: 15%;
     margin-right: 6px;
 }
-
 
 .event-details {
     @include font(0.8rem, 1rem, $primary-font-colour, none, 600);
@@ -50,20 +43,19 @@ main {
 p.time {
     @include font(0.8rem, 1rem, $primary-font-colour, none, 400);
     margin-top: 5px;
-
 }
-
 
 .map-container {
     width: calc(100% - 320px);
     @include flex(column, space-between, stretch);
 }
-
+.full-width {
+    width: calc(100% - 0px);
+}
 
 .map {
     height: calc(100vh - 125px);
 }
-
 
 .legend {
     @include flex(column, space-between, flex-start);
@@ -81,7 +73,6 @@ p.time {
     }
 }
 
-
 .legend-dot {
     @include flex(row, center, center);
     font-weight: 800;
@@ -92,28 +83,22 @@ p.time {
     flex-shrink: 0;
 }
 
-
 .low {
     background: $low-intensity;
 }
-
 
 .medium {
     background: $medium-intensity;
 }
 
-
 .high {
     background: $high-intensity;
 }
-
 
 .severe {
     background: $severe-intensity;
 }
 
-
 .legend-text {
     @include font(0.8rem, 1rem, $primary-font-colour, none, 600);
 }
-

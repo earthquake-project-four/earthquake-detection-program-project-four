@@ -6,22 +6,18 @@ import { useState } from "react";
 
 function App() {
     const [displaySidebar, setDisplaySidebar] = useState(true);
-    const [displayLegend, setDisplayLegend] = useState(true);
 
-    const toggleSidebar = () => {
-        setDisplaySidebar(!displaySidebar);
+    const showSidebar = () => {
+        setDisplaySidebar(true);
     };
-    const toggleLegend = () => {
-        setDisplayLegend(!displayLegend);
+    const hideSidebar = () => {
+        setDisplaySidebar(false);
     };
 
     return (
         <div className="app">
-            <Header toggleSidebar={toggleSidebar} toggleLegend={toggleLegend} />
-            <Main
-                displaySidebar={displaySidebar}
-                displayLegend={displayLegend}
-            />
+            <Header showSidebar={showSidebar} hideSidebar={hideSidebar} />
+            <Main displaySidebar={displaySidebar} />
             <Footer />
         </div>
     );

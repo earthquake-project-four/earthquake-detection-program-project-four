@@ -13,7 +13,7 @@ main {
     height: calc(100vh - 125px);
     background-color: $sidebar-background;
     padding: 20px;
-    z-index: 500;
+    z-index: 999999;
     overflow: hidden auto;
 
     h1 {
@@ -52,6 +52,7 @@ p.time {
 
 .map-container {
     width: 100%;
+    z-index: 500;
     @include flex(column, space-between, stretch);
 }
 
@@ -106,11 +107,9 @@ p.time {
     @include font(0.8rem, 1rem, $primary-font-colour, none, 600);
 }
 
-@media (max-width: 550px) {
+@media (max-width: 720px) {
     .sidebar {
         width: 100%;
-    }
-    .legend {
-        z-index: 9999999;
+        // z-index: 9999;
     }
 }

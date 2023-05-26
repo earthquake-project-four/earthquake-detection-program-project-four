@@ -111,11 +111,10 @@ const Main = ({ displaySidebar, displayLegend }) => {
                     {displaySidebar && (
                         <Sidebar earthquakeData={earthquakeData} />
                     )}
+
                     <div className="map-container">
                         <Map earthquakeData={earthquakeData} />
-                        {displayLegend && (
-                            <Legend earthquakeData={earthquakeData} />
-                        )}
+                        <Legend earthquakeData={earthquakeData} />
                     </div>
                 </>
             )}

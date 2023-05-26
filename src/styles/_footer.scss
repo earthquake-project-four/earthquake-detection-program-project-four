@@ -1,7 +1,25 @@
 @use "./variables" as *;
 @use "./mixins" as *;
 
+
 footer {
+  height: 80vh;
+  background: #005772a4;
+
+}
+
+.footer-container {
+  display: flex;
+  padding: 15px;
+}
+
+.ecs-foot {
+  width: 60px;
+  height: 60px;
+
+}
+
+.credits {
   @include font(0.8rem, 1rem, $secondary-font-colour, uppercase, 600);
   height: 50px;
   padding: 5px 0;

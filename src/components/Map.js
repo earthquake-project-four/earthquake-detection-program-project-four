@@ -7,9 +7,10 @@ const Map = ({ earthquakeData }) => {
             <MapContainer
                 center={[0, 0]}
                 zoom={2}
-                minZoom={2}
-                maxZoom={6}
+                minZoom={1}
+                maxZoom={3}
                 className="map"
+                scrollWheelZoom={false}
             >
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

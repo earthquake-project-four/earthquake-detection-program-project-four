@@ -2,10 +2,9 @@ import EventList from './EventList';
 const Sidebar = ({earthquakeData}) => {
 	return (
 		<section className="sidebar">
-			
-			<h2>Magnitude 2.5+ Earthquakes</h2>
-			<p>Past 24 Hours</p>
-			<p>{earthquakeData.length} earthquakes</p>
+			<h1>Earthquake Detection Program</h1>
+			<p>Magnitude 2.5+ Earthquakes</p>
+			<p>Past 24 Hours: {earthquakeData.length}</p>
 			<EventList earthquakeData={earthquakeData} />
 		</section>
 	);

@@ -3,7 +3,7 @@ import Magnitude from "./Magnitude";
 const Legend = ({ earthquakeData }) => {
     const legendItems = [
         {
-            hero: "General Geology-Teachers",
+            hero: "Gen. Geology-Teachers",
             numOfEvents: earthquakeData.filter(
                 (earthquake) => earthquake.intensity === "low"
             ).length,

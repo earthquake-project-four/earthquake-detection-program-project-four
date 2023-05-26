@@ -3,7 +3,7 @@ import Magnitude from "./Magnitude";
 const Legend = ({ earthquakeData }) => {
     const legendItems = [
         {
-            hero: "General Geology-Teachers",
+            hero: "Gen. Geology-Teachers",
             numOfEvents: earthquakeData.filter(
                 (earthquake) => earthquake.intensity === "low"
             ).length,
@@ -37,19 +37,22 @@ const Legend = ({ earthquakeData }) => {
     ];
 
     return (
-        <ul className="legend">
-            {legendItems.map((legendItem) => {
-                return (
-                    <Magnitude
-                        key={legendItem.hero}
-                        intensity={legendItem.intensity}
-                        numOfEvents={legendItem.numOfEvents}
-                        range={legendItem.range}
-                        hero={legendItem.hero}
-                    />
-                );
-            })}
-        </ul>
+        <section className="legend">
+            <h3>Legend</h3>
+            <ul>
+                {legendItems.map((legendItem) => {
+                    return (
+                        <Magnitude
+                            key={legendItem.hero}
+                            intensity={legendItem.intensity}
+                            numOfEvents={legendItem.numOfEvents}
+                            range={legendItem.range}
+                            hero={legendItem.hero}
+                        />
+                    );
+                })}
+            </ul>
+        </section>
     );
 };
 

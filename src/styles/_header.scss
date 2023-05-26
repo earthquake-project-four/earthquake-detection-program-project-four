@@ -8,7 +8,7 @@ header {
 }
 
 .logo {
-    width: 320px;
+    width: 180px;
     padding: 20px;
 
     img {
@@ -18,14 +18,15 @@ header {
 
 .header-nav {
     @include flex(row, flex-end);
-    width: calc(100% - 320px);
+    width: calc(100% - 180px);
 
     ul {
-        @include flex;
-        margin-right: 20px;
+        @include flex();
+        margin-right: 10px;
     }
 
     li {
+        flex-shrink: 0;
         margin-left: 10px;
     }
 
@@ -41,8 +42,8 @@ header {
     }
 
     img {
-        width: 60px;
-        height: 60px;
-        padding: 10px;
+        width: 50px;
+        height: 50px;
+        padding: 5px;
     }
 }

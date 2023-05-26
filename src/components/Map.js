@@ -1,5 +1,5 @@
 import MapMarker from "./MapMarker";
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer, ZoomControl } from "react-leaflet";
 
 const Map = ({ earthquakeData }) => {
     return (
@@ -9,12 +9,14 @@ const Map = ({ earthquakeData }) => {
                 zoom={2}
                 minZoom={2}
                 maxZoom={6}
+                zoomControl={false}
                 className="map"
             >
                 <TileLayer
                     url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
                     attribution='Map data &copy; <a href="https://carto.com/">CartoDB</a>'
                 />
+                <ZoomControl position="topright" />
                 {earthquakeData.map((earthquake) => {
                     return (
                         <MapMarker

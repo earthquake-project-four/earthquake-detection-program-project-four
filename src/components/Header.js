@@ -1,24 +1,21 @@
 import logo from "../assets/ecs-logo.png";
 import list from "../assets/list-icon.png";
 import world from "../assets/map-icon.png";
-import ecs from "../assets/ecs-icon.png";
 
 
 const Header = () => {
     return (
         <header>
             <div className="logo">
-                <img src={ logo } alt="esc logo" />
+                <img src={ logo } alt="esc logo" title="Extraordinary Collective of Superheroes"/>
             </div>
 
-            <div>
+            <nav className="header-nav">
                 <ul className="top-bar"> 
-                <li><img src={ list } className="list" alt="list view" /></li>
-                <li><img src={ world } className="world" alt="map view" /></li>
-                <li><img src={ ecs } className="ecs" alt="dropdown menu" /></li>
+                    <li><button><img src={ list } alt="list view" title="Earthquake details" /></button></li>
+                    <li><button><img src={ world } alt="map view" title="Legend" /></button></li>
                 </ul>
-            </div>
-
+            </nav>
         </header>
     )
 };

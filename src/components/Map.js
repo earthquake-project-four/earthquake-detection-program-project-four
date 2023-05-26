@@ -12,15 +12,15 @@ const Map = ({ earthquakeData }) => {
                 className="map"
             >
                 <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+                    attribution='Map data &copy; <a href="https://carto.com/">CartoDB</a>'
                 />
                 {earthquakeData.map((earthquake) => {
                     return (
                         <MapMarker
                             key={earthquake.id}
                             coords={[earthquake.lat, earthquake.lng]}
-                            mag={earthquake.mag * 1.5}
+                            radius={earthquake.mag * 1.5}
                             colour={earthquake.colour}
                             title={earthquake.title}
                             time={earthquake.time}

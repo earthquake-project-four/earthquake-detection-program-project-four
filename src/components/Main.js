@@ -1,10 +1,10 @@
+import Error from "./Error";
 import Sidebar from "./Sidebar";
 import Map from "./Map";
-import Legend from "./Legend";
-import { useState, useEffect } from "react";
 import axios from "axios";
 import app from "../firebase/firebase";
 import { onValue, getDatabase, ref, set } from "firebase/database";
+import { useState, useEffect } from "react";
 
 const Main = ({ displaySidebar, displayLegend }) => {
     const [earthquakeData, setEarthquakeData] = useState([]);
@@ -105,7 +105,7 @@ const Main = ({ displaySidebar, displayLegend }) => {
     return (
         <main>
             {error ? (
-                <p>Oops! Something Went Wrong. Please try again</p>
+                <Error />
             ) : (
                 <>
                     {displaySidebar && (

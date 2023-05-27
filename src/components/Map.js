@@ -5,9 +5,9 @@ const Map = ({ earthquakeData }) => {
     return (
         <section>
             <MapContainer
-                center={[0, 0]}
-                zoom={2}
-                minZoom={2}
+                center={[28, -68]}
+                zoom={1.5}
+                minZoom={1}
                 maxZoom={6}
                 zoomControl={false}
                 className="map"

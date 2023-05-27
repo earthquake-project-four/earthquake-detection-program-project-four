@@ -58,25 +58,6 @@ p.time {
     height: calc(100vh - 125px);
 }
 
-.legend {
-    @include flex(column, space-between, flex-start);
-    position: absolute;
-    right: 10px;
-    bottom: 21px;
-    z-index: 400;
-    width: 200px;
-    padding: 20px 10px;
-    background: $legend-background;
-
-    h3 {
-        margin-bottom: 10px;
-    }
-    li {
-        @include flex(row, flex-start);
-        margin: 5px 0;
-    }
-}
-
 .legend-dot {
     @include flex(row, center, center);
     font-weight: 800;

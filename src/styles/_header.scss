@@ -20,24 +20,16 @@ header {
     @include flex(row, flex-end);
     width: calc(100% - 180px);
 
-    ul {
-        @include flex();
-        margin-right: 10px;
-    }
-
-    li {
-        flex-shrink: 0;
-        margin-left: 10px;
-    }
-
     button {
         cursor: pointer;
         background: transparent;
-        transition: transform 0.3s;
+        transition: box-shadow 0.1s;
+        flex-shrink: 0;
+        margin-right: 10px;
 
         &:hover,
         &:focus {
-            transform: scale(1.25);
+            box-shadow: 0 0 5px;
         }
     }
 

@@ -1,6 +1,5 @@
 import logo from "../assets/ecs-logo.png";
 import list from "../assets/list-icon.png";
-import world from "../assets/map-icon.png";
 
 const Header = ({ toggleSidebar, toggleLegend }) => {
     return (
@@ -14,22 +13,13 @@ const Header = ({ toggleSidebar, toggleLegend }) => {
             </div>
 
             <nav className="header-nav">
-                <ul className="top-bar">
-                    <li>
-                        <button onClick={toggleSidebar}>
-                            <img
-                                src={list}
-                                alt="sidebar icon"
-                                title="Earthquake details"
-                            />
-                        </button>
-                    </li>
-                    <li>
-                        <button onClick={toggleLegend}>
-                            <img src={world} alt="legend icon" title="Legend" />
-                        </button>
-                    </li>
-                </ul>
+                <button onClick={toggleSidebar}>
+                    <img
+                        src={list}
+                        alt="sidebar icon"
+                        title="Earthquake details"
+                    />
+                </button>
             </nav>
         </header>
     );

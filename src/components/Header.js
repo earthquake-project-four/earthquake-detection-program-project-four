@@ -24,11 +24,6 @@ const Header = ({ toggleSidebar, toggleLegend }) => {
                             />
                         </button>
                     </li>
-                    <li>
-                        <button onClick={toggleLegend}>
-                            <img src={world} alt="legend icon" title="Legend" />
-                        </button>
-                    </li>
                 </ul>
             </nav>
         </header>

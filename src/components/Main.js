@@ -1,3 +1,4 @@
+import LoadingAnimation from "./LoadingAnimation";
 import Error from "./Error";
 import Sidebar from "./Sidebar";
 import Map from "./Map";
@@ -6,9 +7,10 @@ import app from "../firebase/firebase";
 import { onValue, getDatabase, ref, set } from "firebase/database";
 import { useState, useEffect } from "react";
 
-const Main = ({ displaySidebar, displayLegend }) => {
+const Main = ({ displaySidebar }) => {
     const [earthquakeData, setEarthquakeData] = useState([]);
     const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [newEvents, setNewEvents] = useState({
         generalGeologyTeachers: [],
         richMortal: [],
@@ -21,6 +23,7 @@ const Main = ({ displaySidebar, displayLegend }) => {
         const startTime = new Date(
             currentDate.getTime() - 24 * 60 * 60 * 1000
         ).toISOString();
+
         axios({
             url: "https://earthquake.usgs.gov/fdsnws/event/1/query",
             params: {
@@ -72,11 +75,17 @@ const Main = ({ displaySidebar, displayLegend }) => {
                         intensity: intensity,
                     };
                 });
-                setNewEvents(eventsLog);
                 setEarthquakeData(arrayOfEarthquakes);
+                setNewEvents(eventsLog);
+                setTimeout(() => {
+                    setLoading(false);
+                }, 1500);
             })
             .catch(() => {
                 setError(true);
+                setTimeout(() => {
+                    setLoading(false);
+                }, 1500);
             });
     }, []);
 
@@ -104,18 +113,21 @@ const Main = ({ displaySidebar, displayLegend }) => {
     }, [newEvents]);
     return (
         <main>
-            {error ? (
-                <Error />
-            ) : (
-                <>
-                    {displaySidebar && (
-                        <Sidebar earthquakeData={earthquakeData} />
-                    )}
-                    <div className="map-container">
-                        <Map earthquakeData={earthquakeData} />
-                    </div>
-                </>
-            )}
+            {
+                loading ? <LoadingAnimation /> : null
+            }
+            {
+                error ? <Error /> : (
+                    <>
+                        {displaySidebar && (
+                            <Sidebar earthquakeData={earthquakeData} />
+                        )}
+                        <div className="map-container">
+                            <Map earthquakeData={earthquakeData} />
+                        </div>
+                    </>
+                )
+            }
         </main>
     );
 };

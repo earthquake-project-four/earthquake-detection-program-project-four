@@ -1,3 +1,27 @@
 @use "./variables" as *;
 @use "./mixins" as *;
 
+.loading-background {
+    @include flex(row, center, center);
+    position: absolute;
+    inset: 0;
+    background: #000000dd;
+    z-index: 2000;
+}
+
+.loader {
+    width: 20vmin;
+    height: 20vmin;
+    border-radius: 50%;
+    background-color: $low-intensity;
+    opacity: 0.8;
+    animation: loading 1s ease-in-out infinite alternate;
+}
+
+@keyframes loading {
+    100% {
+        transform: scale(0);
+        background-color: $severe-intensity;
+        opacity: 0.6;
+    }
+}

@@ -24,7 +24,7 @@ const Main = ({ displaySidebar, displayLegend }) => {
         axios({
             url: "https://earthquake.usgs.gov/fdsnws/event/1/query",
             params: {
-                format: "geojson",
+                format: "geojso",
                 starttime: startTime,
                 minmagnitude: "2.5",
             },

@@ -79,13 +79,13 @@ const Main = ({ displaySidebar }) => {
                 setNewEvents(eventsLog);
                 setTimeout(() => {
                     setLoading(false);
-                }, 1000);
+                }, 1500);
             })
             .catch(() => {
                 setError(true);
                 setTimeout(() => {
                     setLoading(false);
-                }, 1000);
+                }, 1500);
             });
     }, []);
 

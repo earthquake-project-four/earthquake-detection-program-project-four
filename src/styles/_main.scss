@@ -29,28 +29,28 @@ main {
 }
 
 .sidebar-nav {
-    @include flex();
-    text-align: center;
-    margin-bottom: 20px;
-    border-bottom: 2px solid $primary-font-colour;
+	@include flex();
+	text-align: center;
+	margin-bottom: 20px;
+	border-bottom: 2px solid $primary-font-colour;
 
-    li {
-        width: 50%;
-    }
+	li {
+		width: 50%;
+	}
 
-    button {
-        @include font(0.9rem, 1rem, $primary-font-colour, uppercase, 600);
-        cursor: pointer;
-        width: 100%;
-        padding: 10px 0;
-        background: transparent;
-        transition: box-shadow 0.2s;
+	button {
+		@include font(0.9rem, 1rem, $primary-font-colour, uppercase, 600);
+		cursor: pointer;
+		width: 100%;
+		padding: 10px 0;
+		background: transparent;
+		transition: box-shadow 0.2s;
 
-        &:hover,
-        &:focus-visible {
-            box-shadow: 0 0 5px $primary-font-colour;
-        }
-    }
+		&:hover,
+		&:focus-visible {
+			box-shadow: 0 0 5px $primary-font-colour;
+		}
+	}
 }
 
 .sidebar::-webkit-scrollbar {
@@ -74,7 +74,7 @@ main {
 	}
 
 	svg {
-		margin-right: 20px;
+		margin-right: 8px;
 		height: fit-content;
 		flex-shrink: 0;
 

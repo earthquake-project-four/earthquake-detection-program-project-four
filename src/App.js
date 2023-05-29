@@ -6,6 +6,7 @@ import "./styles/App.scss";
 
 function App() {
     const [displaySidebar, setDisplaySidebar] = useState(true);
+
     const toggleSidebar = () => {
         setDisplaySidebar(!displaySidebar);
     };

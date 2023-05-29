@@ -19,6 +19,7 @@ header {
 .header-nav {
     @include flex(row, flex-end);
     width: calc(100% - 180px);
+    z-index: 999999999;
 
     button {
         cursor: pointer;
@@ -28,7 +29,7 @@ header {
         margin-right: 10px;
 
         &:hover,
-        &:focus {
+        &:focus-visible {
             box-shadow: 0 0 5px;
         }
     }

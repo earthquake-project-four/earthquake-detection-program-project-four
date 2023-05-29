@@ -40,6 +40,12 @@ const Magnitude = ({numOfEvents, range, hero, intensity, colour, image, earthqua
 		setExpanded(!expanded);
 	};
 
+	const handleTouchStart = (event) => {
+		event.preventDefault();
+		setDisplayEvents(!displayEvents);
+		setExpanded(!expanded);
+	};
+
 	return (
 		<li>
 			<div
@@ -60,6 +66,7 @@ const Magnitude = ({numOfEvents, range, hero, intensity, colour, image, earthqua
 				{!expanded ? (
 					<svg
 						onClick={handleClick}
+						onTouchStart={handleTouchStart}
 						viewBox="0 0 24 24"
 						fill="none"
 						xmlns="http://www.w3.org/2000/svg"

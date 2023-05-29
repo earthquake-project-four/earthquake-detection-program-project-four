@@ -1,9 +1,7 @@
 import logo from "../assets/ecs-logo.png";
 import list from "../assets/list-icon.png";
 
-const Header = ({ toggleSidebar, toggleLegend }) => {
-
-    
+const Header = ({ toggleSidebar }) => {
     return (
         <header>
             <div className="logo">

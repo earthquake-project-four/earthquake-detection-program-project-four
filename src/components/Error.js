@@ -1,4 +1,4 @@
-import rich from "../assets/rich-mortal.png";
+import rich from "../assets/rich-mortal-noback.png";
 import quake from "../assets/quake.png";
 
 const Error = () => {

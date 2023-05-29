@@ -1,3 +1,4 @@
+import LoadingAnimation from "./LoadingAnimation";
 import Error from "./Error";
 import Sidebar from "./Sidebar";
 import Map from "./Map";
@@ -5,10 +6,14 @@ import axios from "axios";
 import app from "../firebase/firebase";
 import { onValue, getDatabase, ref, set } from "firebase/database";
 import { useState, useEffect } from "react";
+import refreshIcon from "../assets/refresh.png";
+import swal from "sweetalert";
 
-const Main = ({ displaySidebar, displayLegend }) => {
+const Main = ({ displaySidebar }) => {
     const [earthquakeData, setEarthquakeData] = useState([]);
     const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [latestClicked, setLatestClicked] = useState(false);
     const [newEvents, setNewEvents] = useState({
         generalGeologyTeachers: [],
         richMortal: [],
@@ -16,11 +21,26 @@ const Main = ({ displaySidebar, displayLegend }) => {
         all: [],
     });
 
+    const handleLatestClicked = () => {
+        setLatestClicked(!latestClicked);
+
+        swal({
+            text: "Data updated!!",
+            icon: "success",
+            className: "sweet-alert",
+            button: {
+                text: "Close",
+                className: "close-btn",
+            },
+        });
+    };
+
     useEffect(() => {
         const currentDate = new Date();
         const startTime = new Date(
             currentDate.getTime() - 24 * 60 * 60 * 1000
         ).toISOString();
+
         axios({
             url: "https://earthquake.usgs.gov/fdsnws/event/1/query",
             params: {
@@ -31,6 +51,7 @@ const Main = ({ displaySidebar, displayLegend }) => {
         })
             .then((res) => {
                 const results = res.data.features;
+                console.log(results);
                 const eventsLog = {
                     generalGeologyTeachers: [],
                     richMortal: [],
@@ -72,13 +93,19 @@ const Main = ({ displaySidebar, displayLegend }) => {
                         intensity: intensity,
                     };
                 });
-                setNewEvents(eventsLog);
                 setEarthquakeData(arrayOfEarthquakes);
+                setNewEvents(eventsLog);
+                setTimeout(() => {
+                    setLoading(false);
+                }, 1500);
             })
             .catch(() => {
                 setError(true);
+                setTimeout(() => {
+                    setLoading(false);
+                }, 1500);
             });
-    }, []);
+    }, [latestClicked]);
 
     useEffect(() => {
         const database = getDatabase(app);
@@ -104,6 +131,7 @@ const Main = ({ displaySidebar, displayLegend }) => {
     }, [newEvents]);
     return (
         <main>
+            {loading ? <LoadingAnimation /> : null}
             {error ? (
                 <Error />
             ) : (
@@ -113,6 +141,12 @@ const Main = ({ displaySidebar, displayLegend }) => {
                     )}
                     <div className="map-container">
                         <Map earthquakeData={earthquakeData} />
+                        <button
+                            className="latest-data-btn"
+                            onClick={handleLatestClicked}
+                        >
+                            <img src={refreshIcon} alt="" />
+                        </button>
                     </div>
                 </>
             )}

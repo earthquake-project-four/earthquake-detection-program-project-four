@@ -1,6 +1,8 @@
 const LoadingAnimation = () => {
     return (
-        <p></p>
+        <div className="loading-background">
+            <div className="loader"></div>
+        </div>
     )
 }
 

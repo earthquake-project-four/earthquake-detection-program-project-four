@@ -32,17 +32,18 @@ const EventList = styled.ul`
 const Magnitude = ({numOfEvents, range, hero, intensity, colour, image, earthquakeData}) => {
 	const [displayEvents, setDisplayEvents] = useState(false);
 	const filteredData = earthquakeData.filter((earthquake) => earthquake.intensity === intensity);
+	const [expanded, setExpanded] = useState(false);
 
 	const handleClick = () => {
 		setDisplayEvents(!displayEvents);
+		setExpanded(!expanded);
 	};
 
 	return (
 		<li className="legend-list-item">
-			<button
+			<div
 				style={{backgroundColor: colour}}
 				className={`legend-btn legend-btn-${intensity}`}
-				onClick={handleClick}
 			>
 				<div className="legend-image-container">
 					<img
@@ -55,7 +56,62 @@ const Magnitude = ({numOfEvents, range, hero, intensity, colour, image, earthqua
 					<p>Magnitude: {range}</p>
 					<p>{numOfEvents} earthquakes</p>
 				</div>
-			</button>
+				{!expanded ? (
+					<svg
+						onClick={handleClick}
+						viewBox="0 0 24 24"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+						width="40px"
+						height="40px"
+					>
+						<g
+							id="SVGRepo_bgCarrier"
+							stroke-width="0"
+						></g>
+						<g
+							id="SVGRepo_tracerCarrier"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						></g>
+						<g id="SVGRepo_iconCarrier">
+							{' '}
+							<path
+								d="M18 9L12 15L6 9"
+								stroke="#ffffff"
+								stroke-width="2"
+							></path>{' '}
+						</g>
+					</svg>
+				) : (
+					<svg
+						onClick={handleClick}
+						viewBox="0 0 24 24"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+						width="40px"
+						height="40px"
+					>
+						<g
+							id="SVGRepo_bgCarrier"
+							stroke-width="0"
+						></g>
+						<g
+							id="SVGRepo_tracerCarrier"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						></g>
+						<g id="SVGRepo_iconCarrier">
+							{' '}
+							<path
+								d="M18 15L12 9L6 15"
+								stroke="#ffffff"
+								stroke-width="2"
+							></path>{' '}
+						</g>
+					</svg>
+				)}
+			</div>
 
 			<TransitionGroup component={EventList}>
 				{displayEvents &&

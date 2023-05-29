@@ -1,42 +1,42 @@
-@use "./variables" as *;
-@use "./mixins" as *;
+@use './variables' as *;
+@use './mixins' as *;
 
 header {
-    @include flex();
-    height: 75px;
-    background-color: $accent-colour;
+	@include flex();
+	height: 75px;
+	background-color: $accent-colour;
 }
 
 .logo {
-    width: 180px;
-    padding: 20px;
+	width: 180px;
+	padding: 20px;
 
-    img {
-        width: 180px;
-    }
+	img {
+		width: 180px;
+	}
 }
 
 .header-nav {
-    @include flex(row, flex-end);
-    width: calc(100% - 180px);
-    z-index: 999999999;
+	@include flex(row, flex-end);
+	width: calc(100% - 180px);
+	z-index: 999999999;
 
-    button {
-        cursor: pointer;
-        background: transparent;
-        transition: box-shadow 0.1s;
-        flex-shrink: 0;
-        margin-right: 10px;
+	button {
+		cursor: pointer;
+		background: transparent;
+		transition: box-shadow 0.1s;
+		flex-shrink: 0;
+		margin-right: 10px;
 
-        &:hover,
-        &:focus-visible {
-            box-shadow: 0 0 5px;
-        }
-    }
+		&:hover,
+		&:focus-visible {
+			box-shadow: 0 0 5px;
+		}
+	}
 
-    img {
-        width: 50px;
-        height: 50px;
-        padding: 5px;
-    }
+	img {
+		width: 50px;
+		height: 50px;
+		padding: 5px;
+	}
 }

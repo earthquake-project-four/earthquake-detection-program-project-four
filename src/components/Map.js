@@ -1,7 +1,7 @@
 import MapMarker from './MapMarker';
 import {MapContainer, TileLayer, ZoomControl} from 'react-leaflet';
 
-const Map = ({earthquakeData, mapState}) => {
+const Map = ({earthquakeData}) => {
 	return (
 		<section>
 			<MapContainer

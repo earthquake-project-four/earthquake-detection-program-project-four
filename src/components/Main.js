@@ -107,7 +107,7 @@ const Main = ({ displaySidebar, error, setError }) => {
 
     useEffect(() => {
         const database = getDatabase(app);
-        const dbRef = ref(database);
+        const dbRef = ref(database, "/earthquakes");
 
         onValue(dbRef, (dbResponse) => {
             if (dbResponse.exists()) {

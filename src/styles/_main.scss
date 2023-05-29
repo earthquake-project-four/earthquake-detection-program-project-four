@@ -14,12 +14,13 @@ main {
 	background-color: $sidebar-background;
 	padding: 20px;
 	z-index: 1500;
-	overflow: hidden auto;
-	border-right: 2px solid $accent-colour;
+	overflow: hidden scroll;
+	// border-right: 2px solid white;
 
 	h1 {
-		@include font(1.75rem, 1.75rem, $primary-font-colour, none, 800);
+		@include font(1.75rem, 1.5, $primary-font-colour, none, 800);
 		margin-bottom: 10px;
+		width: min(fit-content, 95%);
 	}
 
 	h2 {
@@ -28,19 +29,43 @@ main {
 	}
 }
 
+.sidebar::-webkit-scrollbar {
+	width: 3px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+	// box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+	background-color: darkgrey;
+	// outline: 1px solid slategrey;
+}
+
 .legend-btn {
 	@include flex();
+
 	width: 100%;
 	margin-bottom: 5px;
 	border-radius: 10px;
-
-	&:hover {
-		cursor: pointer;
-		outline: 2px solid white;
-	}
+	text-align: left;
 
 	p {
-		padding: 5px 20px 5px 0;
+		padding: 5px 0;
+	}
+
+	svg {
+		// pointer-events: none;
+		margin-right: 20px;
+		height: fit-content;
+		flex-shrink: 0;
+
+		&:hover,
+		&:focus-visible {
+			cursor: pointer;
+			transform: scale(1.3);
+			transition: transform 0.2s ease;
+		}
 	}
 }
 
@@ -51,28 +76,6 @@ main {
 
 .magnitude-list {
 	padding: 10px 0;
-}
-
-.transition-enter {
-	opacity: 0.01;
-	transform: translate(0, -10px);
-}
-
-.transition-enter-active {
-	opacity: 1;
-	transform: translate(0, -10px);
-	transition: all 300ms ease-in;
-}
-
-.transition-exit {
-	opacity: 1;
-	transform: translate(0, 0);
-}
-
-.transition-exit-active {
-	opacity: 0.01;
-	transform: translate(0, 10px);
-	transition: all 300ms ease-in;
 }
 
 .event {
@@ -89,13 +92,13 @@ main {
 
 .magnitude {
 	@include font(0.9rem, 0.9rem, $primary-font-colour, none, 800);
-	width: 15%;
-	margin-right: 6px;
+	flex-basis: 15%;
+	margin-right: 0.3rem;
 }
 
 .event-details {
 	@include font(0.8rem, 1rem, $primary-font-colour, none, 600);
-	width: 85%;
+	flex-basis: 85%;
 }
 
 p.time {
@@ -122,27 +125,9 @@ p.time {
 	flex-shrink: 0;
 }
 
-// dynamically styled inline instead - GJ
-
-// .low {
-// 	background: $low-intensity;
-// }
-
-// .medium {
-// 	background: $medium-intensity;
-// }
-
-// .high {
-// 	background: $high-intensity;
-// }
-
-// .severe {
-// 	background: $severe-intensity;
-// }
-
 .legend-text {
 	@include font(0.8rem, 1rem, $primary-font-colour, none, 600);
-	width: 100%;
+	flex-basis: 100%;
 }
 
 @media (max-width: 720px) {
@@ -154,7 +139,6 @@ p.time {
 @media (max-width: 550px) {
 	.magnitude {
 		// @include font(0.9rem, 0.9rem, $primary-font-colour, none, 800);
-		// width: 15%;
 		margin-right: 10px;
 	}
 }

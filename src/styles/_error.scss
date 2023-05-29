@@ -5,6 +5,8 @@
   @include flex(row, center, center);
   background-color: rgba(211, 211, 211, 0.555);
   width: 100%;
+  overflow: auto;
+
 }
 
 .error-container {
@@ -20,7 +22,7 @@
 
 .error-art {
   position: relative;
-  margin-top: 15vmin;
+  margin-top: 10vmin;
 }
 
 //foreground image
@@ -44,6 +46,6 @@
 }
 
 @keyframes floater {
-  40%{transform: translateY(-50%);transition: ease 4s;}
+  40%{transform: translateY(-45%);transition: ease 4s;}
   0%{transform: translateY(-2%);transition: ease 0.5s;}
 }

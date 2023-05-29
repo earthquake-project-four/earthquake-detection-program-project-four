@@ -19,6 +19,7 @@ header {
 .header-nav {
 	@include flex(row, flex-end);
 	width: calc(100% - 180px);
+	z-index: 999999999;
 
 	button {
 		cursor: pointer;

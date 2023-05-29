@@ -7,7 +7,7 @@ import teamECS from '../assets/team-ecs.png';
 const Legend = ({earthquakeData}) => {
 	const legendItems = [
 		{
-			hero: 'General Geology-Teachers',
+			hero: 'Gen. Geology-Teachers',
 			numOfEvents: earthquakeData.filter((earthquake) => earthquake.intensity === 'low').length,
 			range: '2.50 - 3.49',
 			intensity: 'low',

@@ -51,7 +51,6 @@ const Main = ({ displaySidebar }) => {
         })
             .then((res) => {
                 const results = res.data.features;
-                console.log(results);
                 const eventsLog = {
                     generalGeologyTeachers: [],
                     richMortal: [],

@@ -4,7 +4,7 @@ import {TransitionGroup, CSSTransition} from 'react-transition-group';
 import styled from 'styled-components';
 
 const EventList = styled.ul`
-	padding: 5px 0;
+	padding: 5px 0 5px 20px;
 
 	.event-enter {
 		opacity: 0;
@@ -40,10 +40,10 @@ const Magnitude = ({numOfEvents, range, hero, intensity, colour, image, earthqua
 	};
 
 	return (
-		<li className="legend-list-item">
+		<li>
 			<div
 				style={{backgroundColor: colour}}
-				className={`legend-btn legend-btn-${intensity}`}
+				className="legend-item"
 			>
 				<div className="legend-image-container">
 					<img
@@ -67,19 +67,19 @@ const Magnitude = ({numOfEvents, range, hero, intensity, colour, image, earthqua
 					>
 						<g
 							id="SVGRepo_bgCarrier"
-							stroke-width="0"
+							strokeWidth="0"
 						></g>
 						<g
 							id="SVGRepo_tracerCarrier"
-							stroke-linecap="round"
-							stroke-linejoin="round"
+							strokeLinecap="round"
+							strokeLinejoin="round"
 						></g>
 						<g id="SVGRepo_iconCarrier">
 							{' '}
 							<path
 								d="M18 9L12 15L6 9"
 								stroke="#ffffff"
-								stroke-width="2"
+								strokeWidth="2"
 							></path>{' '}
 						</g>
 					</svg>
@@ -94,19 +94,19 @@ const Magnitude = ({numOfEvents, range, hero, intensity, colour, image, earthqua
 					>
 						<g
 							id="SVGRepo_bgCarrier"
-							stroke-width="0"
+							strokeWidth="0"
 						></g>
 						<g
 							id="SVGRepo_tracerCarrier"
-							stroke-linecap="round"
-							stroke-linejoin="round"
+							strokeLinecap="round"
+							strokeLinejoin="round"
 						></g>
 						<g id="SVGRepo_iconCarrier">
 							{' '}
 							<path
 								d="M18 15L12 9L6 15"
 								stroke="#ffffff"
-								stroke-width="2"
+								strokeWidth="2"
 							></path>{' '}
 						</g>
 					</svg>

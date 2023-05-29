@@ -9,12 +9,12 @@ main {
 
 .sidebar {
 	position: absolute;
-	width: 420px;
+	width: 400px;
 	height: calc(100vh - 125px);
 	background-color: $sidebar-background;
 	padding: 20px;
 	z-index: 1500;
-	overflow: hidden auto;
+	overflow: hidden scroll;
 	border-right: 2px solid $accent-colour;
 
 	h1 {
@@ -36,7 +36,7 @@ main {
 	background-color: darkgrey;
 }
 
-.legend-btn {
+.legend-item {
 	@include flex();
 
 	width: 100%;
@@ -60,6 +60,11 @@ main {
 			transition: transform 0.2s ease;
 		}
 	}
+}
+
+.legend-text {
+	@include font(0.8rem, 1rem, $primary-font-colour, none, 600);
+	width: 100%;
 }
 
 .legend-image-container {
@@ -108,16 +113,6 @@ p.time {
 	height: calc(100vh - 125px);
 }
 
-.legend-dot {
-	@include flex(row, center, center);
-	font-weight: 800;
-	width: 35px;
-	height: 35px;
-	border-radius: 50%;
-	margin-right: 20px;
-	flex-shrink: 0;
-}
-
 .latest-data-btn {
 	margin-right: 10px;
 	padding: 3px;
@@ -153,11 +148,6 @@ button.swal-button.swal-button--confirm.close-btn {
 	&:hover {
 		background-color: $accent-colour;
 	}
-}
-
-.legend-text {
-	@include font(0.8rem, 1rem, $primary-font-colour, none, 600);
-	width: 100%;
 }
 
 @media (max-width: 900px) {

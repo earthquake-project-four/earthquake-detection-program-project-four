@@ -1,37 +1,18 @@
+import rich from "../assets/rich-mortal-noback.png";
+import quake from "../assets/quake.png";
+
 const Error = () => {
     return (
-
         <section className="error-section">
-
-
-            <div className="message">
-                <p className="oops">Oops!</p> 
-                <p>Something Went Wrong. Please try again</p>
-            </div>
-
-            <div className="quake-art">
-
-                <div className="quake-left">
-                    <span className="box-left"/>
-                        <div className="triangle-left">
-                            <span className="left-1"/>
-                            <span className="left-2"/>
-                            <span className="left-3"/>
-                        </div>
-                </div>
-
-                <div className="quake-right">
-                   <div className="triangle-right">
-                        <span className="right-1"/>
-                        <span className="right-2"/>
+            <div className="error-container">
+                <h2>OOPS!</h2>
+                <p>Something went wrong on our end.</p>
+                <p>Please try again soon.</p>
+                    <div className="error-art">
+                        <img src={quake} className="quake-img" alt="earthquake"/> 
+                        <img src={rich} className="float-img" alt="floating superhero"/>
                     </div>
-                    <span className="box-right"/>
-                </div>    
-
-
-            </div>
-
-
+            </div>        
         </section>
     )
 }

@@ -6,17 +6,34 @@ import axios from "axios";
 import app from "../firebase/firebase";
 import { onValue, getDatabase, ref, set } from "firebase/database";
 import { useState, useEffect } from "react";
+import refreshIcon from "../assets/refresh.png";
+import swal from "sweetalert";
 
 const Main = ({ displaySidebar }) => {
     const [earthquakeData, setEarthquakeData] = useState([]);
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [latestClicked, setLatestClicked] = useState(false);
     const [newEvents, setNewEvents] = useState({
         generalGeologyTeachers: [],
         richMortal: [],
         strongGood: [],
         all: [],
     });
+
+    const handleLatestClicked = () => {
+        setLatestClicked(!latestClicked);
+
+        swal({
+            text: "Data updated!!",
+            icon: "success",
+            className: "sweet-alert",
+            button: {
+                text: "Close",
+                className: "close-btn",
+            },
+        });
+    };
 
     useEffect(() => {
         const currentDate = new Date();
@@ -34,6 +51,7 @@ const Main = ({ displaySidebar }) => {
         })
             .then((res) => {
                 const results = res.data.features;
+                console.log(results);
                 const eventsLog = {
                     generalGeologyTeachers: [],
                     richMortal: [],
@@ -87,7 +105,7 @@ const Main = ({ displaySidebar }) => {
                     setLoading(false);
                 }, 1500);
             });
-    }, []);
+    }, [latestClicked]);
 
     useEffect(() => {
         const database = getDatabase(app);
@@ -113,21 +131,25 @@ const Main = ({ displaySidebar }) => {
     }, [newEvents]);
     return (
         <main>
-            {
-                loading ? <LoadingAnimation /> : null
-            }
-            {
-                error ? <Error /> : (
-                    <>
-                        {displaySidebar && (
-                            <Sidebar earthquakeData={earthquakeData} />
-                        )}
-                        <div className="map-container">
-                            <Map earthquakeData={earthquakeData} />
-                        </div>
-                    </>
-                )
-            }
+            {loading ? <LoadingAnimation /> : null}
+            {error ? (
+                <Error />
+            ) : (
+                <>
+                    {displaySidebar && (
+                        <Sidebar earthquakeData={earthquakeData} />
+                    )}
+                    <div className="map-container">
+                        <Map earthquakeData={earthquakeData} />
+                        <button
+                            className="latest-data-btn"
+                            onClick={handleLatestClicked}
+                        >
+                            <img src={refreshIcon} alt="" />
+                        </button>
+                    </div>
+                </>
+            )}
         </main>
     );
 };

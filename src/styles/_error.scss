@@ -2,125 +2,48 @@
 @use "./mixins" as *;
 
 .error-section {
-    @include flex(column, center, center);
-    text-align: center;
-    margin: 0 auto;
-
-
+  @include flex(row, center, center);
+  background-color: rgba(211, 211, 211, 0.555);
+  width: 100%;
 }
 
-
-
-.oops {
-    animation: shake 2s ease infinite;
-    transform-origin: 100% 50%;
-  }
-  
-  @keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-    20% { transform: translate(-3px, 0px) rotate(1deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
-    40% { transform: translate(1px, -1px) rotate(1deg); }
-    50% { transform: translate(-1px, 2px) rotate(-1deg); }
-    60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
-    100% { transform: translate(1px, -2px) rotate(-1deg); }
-  } 
-
-  .oops:hover {
-    animation: none;
+.error-container {
+  @include flex(column, center, center);
+    h2 {
+      @include font(10vmin, 12vmin, $primary-font-colour, none, 800);
   }
 
-
-// quake art left
-
-
-  .quake-art {
-    @include flex(row, center, center);
-    margin-top: 300px;
-}
-
-.quake-left {
-    display: flex;
-    position: relative;
-    left:40px;
-}
-
-  .box-left {
-    width: 500px;
-    height: 200px;
-    background-color: #555;
-    border-top-left-radius: 40px;
+  p {
+    @include font(4vmin, 5vmin, $primary-font-colour, none, 400);
   }
-
-  .triangle-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-  }
-
-  .left-1 {
-    width: 0;
-    height: 0;
-    border-left: 100px solid #555;
-    border-bottom: 50px solid transparent;
-    padding-left: 40px;
-}
-.left-2 {
-    width: 0;
-    height: 0;
-    border-top: 50px solid transparent;
-    border-left: 100px solid #555;
-    border-bottom: 50px solid transparent;
-    padding-left: 40px;
-}
-.left-3 {
-    width: 0;
-    height: 0;
-    border-top: 50px solid transparent;
-    border-left: 100px solid #555;
-    padding-left: 40px;
 }
 
-// quake art right
-
-.quake-right {
-    display: flex;
-    position: relative;
-    right:40px;
+.error-art {
+  position: relative;
+  margin-top: 15vmin;
 }
 
-
-  .triangle-right {
-    display: flex;
-    flex-direction: column;
+//foreground image
+.quake-img{
+  position: relative;
+  z-index: 2;
+  width: 60vmin;
+  height: 40vmin;
 }
 
-
-.right-1 {
-    width: 0;
-    height: 0;
-    border-top: 50px solid transparent;
-    border-right: 100px solid #555;
-    border-bottom: 50px solid transparent;
-
+//background image
+.float-img{ 
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 6.5vmin;
+  transform: translateY(-2%);
+  animation: floater ease-in-out 5s infinite;
+  width: 45vmin;
+  height: 45vmin;
 }
 
-.right-2 {
-        width: 0;
-        height: 0;
-        border-top: 50px solid transparent;
-        border-right: 100px solid #555;
-        border-bottom: 50px solid transparent;
+@keyframes floater {
+  40%{transform: translateY(-50%);transition: ease 4s;}
+  0%{transform: translateY(-2%);transition: ease 0.5s;}
 }
-
-.box-right {
-    width: 500px;
-    height: 200px;
-    background-color: #555;
-    border-top-right-radius: 40px;
-  }

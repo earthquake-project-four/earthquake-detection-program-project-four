@@ -1,0 +1,51 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+.error-section {
+  @include flex(row, center, center);
+  background-color: rgba(211, 211, 211, 0.555);
+  width: 100%;
+  overflow: auto;
+
+}
+
+.error-container {
+  @include flex(column, center, center);
+    h2 {
+      @include font(10vmin, 12vmin, $primary-font-colour, none, 800);
+  }
+
+  p {
+    @include font(4vmin, 5vmin, $primary-font-colour, none, 400);
+  }
+}
+
+.error-art {
+  position: relative;
+  margin-top: 10vmin;
+}
+
+//foreground image
+.quake-img{
+  position: relative;
+  z-index: 2;
+  width: 60vmin;
+  height: 40vmin;
+}
+
+//background image
+.float-img{ 
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 6.5vmin;
+  transform: translateY(-2%);
+  animation: floater ease-in-out 5s infinite;
+  width: 45vmin;
+  height: 45vmin;
+}
+
+@keyframes floater {
+  40%{transform: translateY(-45%);transition: ease 4s;}
+  0%{transform: translateY(-2%);transition: ease 0.5s;}
+}

@@ -1,0 +1,18 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+footer {
+  @include font(0.8rem, 1rem, $secondary-font-colour, uppercase, 600);
+  height: 50px;
+  padding: 5px 0;
+  background: $accent-colour;
+  text-align: center;
+
+  a {
+    color: $secondary-font-colour;
+  }
+}
+
+.juno {
+  @include font(0.7rem, 1rem, $secondary-font-colour, none, 600);
+}

@@ -1,7 +1,7 @@
 import logo from "../assets/ecs-logo.png";
 import list from "../assets/list-icon.png";
 
-const Header = ({ toggleSidebar }) => {
+const Header = ({ toggleSidebar, error }) => {
     return (
         <header>
             <div className="logo">
@@ -11,16 +11,17 @@ const Header = ({ toggleSidebar }) => {
                     title="Extraordinary Collective of Superheroes"
                 />
             </div>
-
-            <nav className="header-nav">
-                <button onClick={toggleSidebar}>
-                    <img
-                        src={list}
-                        alt="sidebar icon"
-                        title="Earthquake details"
-                    />
-                </button>
-            </nav>
+            {error ? null : (
+                <nav className="header-nav">
+                    <button onClick={toggleSidebar}>
+                        <img
+                            src={list}
+                            alt="sidebar icon"
+                            title="Earthquake details"
+                        />
+                    </button>
+                </nav>
+            )}
         </header>
     );
 };

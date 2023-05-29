@@ -6,15 +6,19 @@ import "./styles/App.scss";
 
 function App() {
     const [displaySidebar, setDisplaySidebar] = useState(true);
-
+    const [error, setError] = useState(false);
     const toggleSidebar = () => {
         setDisplaySidebar(!displaySidebar);
     };
 
     return (
         <div className="app">
-            <Header toggleSidebar={toggleSidebar} />
-            <Main displaySidebar={displaySidebar} />
+            <Header error={error} toggleSidebar={toggleSidebar} />
+            <Main
+                error={error}
+                setError={setError}
+                displaySidebar={displaySidebar}
+            />
             <Footer />
         </div>
     );

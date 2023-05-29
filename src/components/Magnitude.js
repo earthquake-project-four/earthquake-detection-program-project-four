@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const EventList = styled.ul`
 	padding: 5px 0 5px 20px;
-
+	
 	.event-enter {
 		opacity: 0;
 		transform: translateY(-10px);

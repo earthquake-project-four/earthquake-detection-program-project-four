@@ -9,9 +9,8 @@ import { useState, useEffect } from "react";
 import refreshIcon from "../assets/refresh.png";
 import swal from "sweetalert";
 
-const Main = ({ displaySidebar }) => {
+const Main = ({ displaySidebar, error, setError }) => {
     const [earthquakeData, setEarthquakeData] = useState([]);
-    const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
     const [latestClicked, setLatestClicked] = useState(false);
     const [newEvents, setNewEvents] = useState({
@@ -25,7 +24,7 @@ const Main = ({ displaySidebar }) => {
         setLatestClicked(!latestClicked);
 
         swal({
-            text: "Data updated!!",
+            text: "Data updated!!!!!",
             icon: "success",
             className: "sweet-alert",
             button: {
@@ -104,11 +103,11 @@ const Main = ({ displaySidebar }) => {
                     setLoading(false);
                 }, 1000);
             });
-    }, [latestClicked]);
+    }, [latestClicked, setError]);
 
-	useEffect(() => {
-		const database = getDatabase(app);
-		const dbRef = ref(database, '/testing2');
+    useEffect(() => {
+        const database = getDatabase(app);
+        const dbRef = ref(database);
 
         onValue(dbRef, (dbResponse) => {
             if (dbResponse.exists()) {
@@ -144,7 +143,7 @@ const Main = ({ displaySidebar }) => {
                             className="latest-data-btn"
                             onClick={handleLatestClicked}
                         >
-                            <img src={refreshIcon} alt="" />
+                            <img src={refreshIcon} alt="refresh icon" />
                         </button>
                     </div>
                 </>

@@ -18,12 +18,12 @@ main {
 	border-right: 2px solid $accent-colour;
 
 	h1 {
-		@include font(1.75rem, 1.75rem, $primary-font-colour, none, 800);
+		@include font(1.75rem, 2rem, $primary-font-colour, none, 800);
 		margin-bottom: 10px;
 	}
 
 	h2 {
-		@include font(1.25rem, 1.25rem, $primary-font-colour, none, 600);
+		@include font(1.25rem, 1.6rem, $primary-font-colour, none, 600);
 		margin-bottom: 10px;
 	}
 }

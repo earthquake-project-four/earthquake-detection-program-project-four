@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const EventList = styled.ul`
 	padding: 5px 0 5px 20px;
-	
+
 	.event-enter {
 		opacity: 0;
 		transform: translateY(-10px);
@@ -34,7 +34,8 @@ const Magnitude = ({numOfEvents, range, hero, intensity, colour, image, earthqua
 	const filteredData = earthquakeData.filter((earthquake) => earthquake.intensity === intensity);
 	const [expanded, setExpanded] = useState(false);
 
-	const handleClick = () => {
+	const handleClick = (event) => {
+		event.preventDefault();
 		setDisplayEvents(!displayEvents);
 		setExpanded(!expanded);
 	};

@@ -2,14 +2,20 @@ import Legend from "./Legend";
 import About from "./About";
 import { useState } from "react";
 
-const Sidebar = ({ earthquakeData }) => {
+const Sidebar = ({ earthquakeData, setDisplaySidebar }) => {
     const [sidebarContent, setSidebarContent] = useState("earthquakes");
     const handleClick = (content) => {
         setSidebarContent(content);
     };
+    const handleClose = () => {
+        setDisplaySidebar(false);
+    };
 
     return (
         <section className="sidebar">
+            <button className="close-sidebar" onClick={handleClose}>
+                &#x2715;
+            </button>
             <nav>
                 <ul className="sidebar-nav">
                     <li>

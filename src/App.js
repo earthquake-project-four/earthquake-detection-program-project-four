@@ -18,6 +18,7 @@ function App() {
                 error={error}
                 setError={setError}
                 displaySidebar={displaySidebar}
+                setDisplaySidebar={setDisplaySidebar}
             />
             <Footer />
         </div>

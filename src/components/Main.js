@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 import refreshIcon from "../assets/refresh.png";
 import swal from "sweetalert";
 
-const Main = ({ displaySidebar, error, setError }) => {
+const Main = ({ displaySidebar, setDisplaySidebar, error, setError }) => {
     const [earthquakeData, setEarthquakeData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [latestClicked, setLatestClicked] = useState(false);
@@ -135,7 +135,7 @@ const Main = ({ displaySidebar, error, setError }) => {
             ) : (
                 <>
                     {displaySidebar && (
-                        <Sidebar earthquakeData={earthquakeData} />
+                        <Sidebar earthquakeData={earthquakeData} setDisplaySidebar={setDisplaySidebar}/>
                     )}
                     <div className="map-container">
                         <Map earthquakeData={earthquakeData} />

@@ -57,23 +57,27 @@ const Main = ({ displaySidebar, setDisplaySidebar, error, setError }) => {
                     all: [],
                 };
                 const arrayOfEarthquakes = results.map((earthquake) => {
-                    let colour, intensity;
+                    let colour, intensity, hero;
                     const mag = earthquake.properties.mag;
                     if (mag < 3.5) {
                         colour = "#fddd59";
                         intensity = "low";
+                        hero = "Gen. Geology Teachers";
                         eventsLog.generalGeologyTeachers.push(earthquake.id);
                     } else if (mag < 6) {
                         colour = "#ff914d";
                         intensity = "medium";
+                        hero = "Rich Mortal";
                         eventsLog.richMortal.push(earthquake.id);
                     } else if (mag < 7) {
                         colour = "#ff3131";
                         intensity = "high";
+                        hero = "StrongGood";
                         eventsLog.strongGood.push(earthquake.id);
                     } else {
                         colour = "#a51b1b";
                         intensity = "severe";
+                        hero = "All Superheroes";
                         eventsLog.all.push(earthquake.id);
                     }
 
@@ -89,6 +93,7 @@ const Main = ({ displaySidebar, setDisplaySidebar, error, setError }) => {
                         ).toLocaleString(),
                         colour: colour,
                         intensity: intensity,
+                        hero: hero,
                     };
                 });
                 setEarthquakeData(arrayOfEarthquakes);

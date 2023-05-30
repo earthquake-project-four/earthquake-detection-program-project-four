@@ -32,6 +32,7 @@ const Map = ({ earthquakeData }) => {
                             colour={earthquake.colour}
                             title={earthquake.title}
                             time={earthquake.time}
+                            hero={earthquake.hero}
                         />
                     );
                 })}

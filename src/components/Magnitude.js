@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const EventList = styled.ul`
 	padding: 5px 0 5px 20px;
-	
+
 	.event-enter {
 		opacity: 0;
 		transform: translateY(-10px);
@@ -34,7 +34,8 @@ const Magnitude = ({numOfEvents, range, hero, intensity, colour, image, earthqua
 	const filteredData = earthquakeData.filter((earthquake) => earthquake.intensity === intensity);
 	const [expanded, setExpanded] = useState(false);
 
-	const handleClick = () => {
+	const handleClick = (event) => {
+		event.preventDefault();
 		setDisplayEvents(!displayEvents);
 		setExpanded(!expanded);
 	};
@@ -57,59 +58,63 @@ const Magnitude = ({numOfEvents, range, hero, intensity, colour, image, earthqua
 					<p>{numOfEvents} earthquakes</p>
 				</div>
 				{!expanded ? (
-					<svg
-						onClick={handleClick}
-						viewBox="0 0 24 24"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-						width="40px"
-						height="40px"
-					>
-						<g
-							id="SVGRepo_bgCarrier"
-							strokeWidth="0"
-						></g>
-						<g
-							id="SVGRepo_tracerCarrier"
-							strokeLinecap="round"
-							strokeLinejoin="round"
-						></g>
-						<g id="SVGRepo_iconCarrier">
-							{' '}
-							<path
-								d="M18 9L12 15L6 9"
-								stroke="#ffffff"
-								strokeWidth="2"
-							></path>{' '}
-						</g>
-					</svg>
+					<button className="chevron">
+						<svg
+							onClick={handleClick}
+							viewBox="0 0 24 24"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+							width="40px"
+							height="40px"
+						>
+							<g
+								id="SVGRepo_bgCarrier"
+								strokeWidth="0"
+							></g>
+							<g
+								id="SVGRepo_tracerCarrier"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+							></g>
+							<g id="SVGRepo_iconCarrier">
+								{' '}
+								<path
+									d="M18 9L12 15L6 9"
+									stroke="#ffffff"
+									strokeWidth="2"
+								></path>{' '}
+							</g>
+						</svg>
+					</button>
 				) : (
-					<svg
-						onClick={handleClick}
-						viewBox="0 0 24 24"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-						width="40px"
-						height="40px"
-					>
-						<g
-							id="SVGRepo_bgCarrier"
-							strokeWidth="0"
-						></g>
-						<g
-							id="SVGRepo_tracerCarrier"
-							strokeLinecap="round"
-							strokeLinejoin="round"
-						></g>
-						<g id="SVGRepo_iconCarrier">
-							{' '}
-							<path
-								d="M18 15L12 9L6 15"
-								stroke="#ffffff"
-								strokeWidth="2"
-							></path>{' '}
-						</g>
-					</svg>
+					<button className="chevron">
+						<svg
+							onClick={handleClick}
+							viewBox="0 0 24 24"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+							width="40px"
+							height="40px"
+						>
+							<g
+								id="SVGRepo_bgCarrier"
+								strokeWidth="0"
+							></g>
+							<g
+								id="SVGRepo_tracerCarrier"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+							></g>
+							<g id="SVGRepo_iconCarrier">
+								{' '}
+								<path
+									d="M18 15L12 9L6 15"
+									stroke="#ffffff"
+									strokeWidth="2"
+								></path>{' '}
+							</g>
+						</svg>
+					</button>
 				)}
 			</div>
 

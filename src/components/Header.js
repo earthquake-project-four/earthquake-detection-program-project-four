@@ -1,4 +1,4 @@
-import logo from "../assets/ecs-logo.png";
+import logo from "../assets/ecs-logo-2.png";
 import list from "../assets/list-icon.png";
 
 const Header = ({ toggleSidebar, error }) => {

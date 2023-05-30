@@ -54,12 +54,12 @@ main {
 }
 
 .close-sidebar {
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: transparent;
-    padding: 3px;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: transparent;
+	padding: 3px;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -82,10 +82,11 @@ main {
 		padding: 5px 0;
 	}
 
-	svg {
+	.chevron {
 		margin-right: 8px;
 		height: fit-content;
 		flex-shrink: 0;
+		background: transparent;
 
 		&:hover,
 		&:focus {

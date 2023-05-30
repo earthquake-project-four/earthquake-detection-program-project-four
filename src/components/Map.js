@@ -2,8 +2,8 @@ import MapMarker from "./MapMarker";
 import { MapContainer, TileLayer, ZoomControl } from "react-leaflet";
 
 const Map = ({ earthquakeData }) => {
-    const southWest = [-90, -300]; // Minimum latitude and longitude
-    const northEast = [90, 240]; // Maximum latitude and longitude
+    const southWest = [-90, -360]; // Minimum latitude and longitude
+    const northEast = [90, 300]; // Maximum latitude and longitude
     const bounds = [southWest, northEast];
     return (
         <section>

@@ -89,7 +89,7 @@ main {
 		background: transparent;
 
 		&:hover,
-		&:focus {
+		&:focus-visible {
 			cursor: pointer;
 			transform: scale(1.3);
 			transition: transform 0.2s ease;
